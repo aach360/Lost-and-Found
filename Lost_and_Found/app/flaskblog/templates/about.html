@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if title%}
+    <title>Lost and Found - {{ title }}</title>
+{% else%}
+    <title>Lost and Found</title>
+{% endif %}
+</head>
+<body>
+    <H1 class="text-center">About page</H1>
+    <br>
+    <br><br>
+<p class="fs-4">
+    
+
+Hello I am Aarav and I made this website to be an effective way for the
+lost and found to work at PA
+</p>
+
+<p class="fs-4">
+If you have any suggestions or comments, you can contact me via the button
+below.
+</p>
+<a href="mailto:aach360@gmail.com" ><button class="btn btn-primary btn-lg">Send Email</button><a>
+    <br><br>
+<img src="static/profile_pics/PA.jpeg" alt="PA: Home of the Cavaliers">
+{% endblock content %}
