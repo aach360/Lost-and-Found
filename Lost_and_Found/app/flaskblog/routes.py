@@ -91,36 +91,19 @@ def account():
     return render_template('account.html', title='Account',
                            image_file=image_file, form=form)
 
-def save_image(form_image):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_image.filename)
-    image_fn = random_hex + f_ext
-    image_path = os.path.join(app.root_path, 'static/images', image_fn)
 
-    output_size = (200, 200)
-    i = Image.open(form_image)
-    i.thumbnail(output_size)
-    i.save(image_path)
-
-    return image_fn
 @app.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
     form = PostForm()
-    image_file = None  # Initialize image_file to None
-
     if form.validate_on_submit():
-        if form.image.data:
-            image_file = save_image(form.image.data)
-        post = Post(title=form.title.data, content=form.content.data, author=current_user, image_file=image_file)
+        post = Post(title=form.title.data, content=form.content.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash('Your post has been created!', 'success')
         return redirect(url_for('home'))
-    
-    return render_template('create_post.html', image_file=image_file, form=form, legend='New Post')
-
-
+    return render_template('create_post.html', title='New Post',
+                           form=form, legend='New Post')
 
 
 @app.route("/post/<int:post_id>")
