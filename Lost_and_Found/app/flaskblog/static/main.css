@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: #e6cea0;
   color: #333333;
   margin-top: 5rem;
 }
@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #095786;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -77,4 +77,46 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+#artDiv {
+  border-radius: 25px;
+  border: 2px solid #0090ab;
+  padding: 20px;
+  width:100%;
+}
+#articletxt{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  transition: 400ms cubic-bezier(0.7, -0.6, 0.3, 1.2) text-shadow,
+    400ms cubic-bezier(0.7, -0.6, 0.3, 1.2) letter-spacing;
+}
+
+
+.item a {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+
+.item a:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  box-shadow: 1px 1px 1px #000;
+  transform: scaleX(0);
+  transition: 400ms cubic-bezier(0.7, -0.6, 0.3, 1.2) transform;
+}
+
+.item a:hover {
+  letter-spacing: 3px;
+}
+
+.item a:hover:before {
+  transform: scaleX(1);
 }
